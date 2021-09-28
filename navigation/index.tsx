@@ -18,6 +18,7 @@ import TabOneScreen from '../screens/HomeScreen';
 import TabTwoScreen from '../screens/FavoritesScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
+import BookScreen from '../screens/BookScreen';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -47,6 +48,17 @@ function RootNavigator() {
   );
 }
 
+
+const HomeStack= createNativeStackNavigator();
+
+const HomeStackNavigator= ()=>{
+  return (
+    <HomeStack.Navigator screenOptions={{presentation:'card'}}>
+      <HomeStack.Screen name='Home' component={TabOneScreen} options={{title:"home"}}/>
+      <HomeStack.Screen name='Book' component={BookScreen} options={{title:"Book"}}/>
+    </HomeStack.Navigator>
+  );
+}
 /**
  * A bottom tab navigator displays tab buttons on the bottom of the display to switch screens.
  * https://reactnavigation.org/docs/bottom-tab-navigator
@@ -64,7 +76,7 @@ function BottomTabNavigator() {
       }}>
       <BottomTab.Screen
         name="TabOne"
-        component={TabOneScreen}
+        component={HomeStackNavigator}
         options={({ navigation }: RootTabScreenProps<'TabOne'>) => ({
           title: 'Home',
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,

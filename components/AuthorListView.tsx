@@ -16,7 +16,7 @@ const AuthorListView = (props: AuthorListViewProps) => {
   );
   return (
     <View>
-      <Text>Popular Authors</Text>
+      <Text style={{fontSize:20}}>Popular Authors</Text>
       <FlatList
         data={props.data}
         renderItem={renderItem}

@@ -26,6 +26,7 @@ const styles =StyleSheet.create({
     height:70,
     borderRadius:36,
     marginBottom:5,
+    
   },
   text:{
     
