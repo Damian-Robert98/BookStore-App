@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet, FlatList, TextInput } from "react-native";
+import { StyleSheet, ScrollView } from "react-native";
 
 import EditScreenInfo from "../components/EditScreenInfo";
 import BookPreviewList from "../components/BookPreviewList";
-import BookPreview from "../components/BookPreview";
 import { Text, View } from "../components/Themed";
 import { RootTabScreenProps, IBook } from "../types";
 import booksData from "../components/Data/booksData";
+import authorData from "../components/Data/authorData";
+import AuthorListView from "../components/AuthorListView";
 
 export default function TabOneScreen({
   navigation,
@@ -27,7 +28,6 @@ export default function TabOneScreen({
       setBooksBO(books);
     }
     fetchData();
-    
   }, []);
 
   useEffect(() => {
@@ -40,19 +40,22 @@ export default function TabOneScreen({
     });
     setBooks(filteredBooks);
   }, [searchKeyword]);
+
+
   return (
     <View style={styles.container}>
-      <TextInput
-        value={searchKeyword}
-        onChangeText={(text) => setSearchKeyword(text)}
-      />
-      <FlatList
-        data={books}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={(item) => <Text>{item.item.title} </Text>}
-      />
-      
-      <BookPreviewList  title={"best seller"} data={booksData}></BookPreviewList>
+      <ScrollView>
+        <BookPreviewList
+          title={"best seller"}
+          data={booksData}
+        ></BookPreviewList>
+        <AuthorListView data={authorData}/>
+        <BookPreviewList
+          title={"Books Of the Month"}
+          data={booksData}
+        ></BookPreviewList>
+
+      </ScrollView>
     </View>
   );
 }
@@ -60,8 +63,6 @@ export default function TabOneScreen({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
   },
   title: {
     fontSize: 20,
