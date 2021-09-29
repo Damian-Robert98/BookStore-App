@@ -22,17 +22,27 @@ export type RootStackParamList = {
   NotFound: undefined;
 };
 
-export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
-  NativeStackScreenProps<RootStackParamList, Screen>;
-
 export type RootTabParamList = {
-  TabOne: undefined;
+  TabOne: NavigatorScreenParams<HomeStackParamList>|undefined;
   TabTwo: undefined;
 };
+export type HomeStackParamList = {
+  Home: undefined;
+  Book: { userId: string };
+};
+
+export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
+  NativeStackScreenProps<RootStackParamList, Screen>;
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> =
   CompositeScreenProps<
     BottomTabScreenProps<RootTabParamList, Screen>,
+    NativeStackScreenProps<RootStackParamList>
+  >;
+
+export type HomeStackScreenProps<Screen extends keyof HomeStackParamList> =
+  CompositeScreenProps<
+    BottomTabScreenProps<RootTabParamList>,
     NativeStackScreenProps<RootStackParamList>
   >;
 export interface IBook {

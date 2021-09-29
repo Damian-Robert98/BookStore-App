@@ -53,6 +53,7 @@ export default function TabOneScreen({
         <BookPreviewList
           title={"Books Of the Month"}
           data={booksData}
+          
         ></BookPreviewList>
 
       </ScrollView>
