@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, View, StyleSheet, Image } from "react-native";
 
-import BookScreenHeader from '../components/BookScreenHeader/BookScreenHeader';
+import BookScreenHeader from '../components/BookScreenHeader';
 
 const BookScreen = () => {
   return (

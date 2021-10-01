@@ -2,19 +2,51 @@ import React from "react";
 import { View, Text } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 
-
 type RatingsIdicatorProps = {
-  rating?: number;
+  rating: number;
   numOfRatings: number;
 };
 const RatingsIndicator = (props: RatingsIdicatorProps) => {
+  const ratingInt = Math.round(props.rating);
+  const setIconColor = (iconNumber: number, rating: number) => {
+    if (iconNumber <= rating) {
+      return "red";
+    } else {
+      return "grey";
+    }
+  };
   return (
     <View style={{ flexDirection: "row" }}>
-      <FontAwesome name="star-o" size={17} style={{ marginRight: 4 }} />
-      <FontAwesome name="star" size={17} />
-      <FontAwesome name="star" size={17} color={"red"} />
-      <FontAwesome name="star" size={17} color={"red"} />
-      <FontAwesome name="star" size={17} color={"red"} />
+      <FontAwesome
+        name="star"
+        size={17}
+        style={{ marginRight: 3 }}
+        color={setIconColor(1, ratingInt)}
+      />
+      <FontAwesome
+        name="star"
+        size={17}
+        color={setIconColor(2, ratingInt)}
+        style={{ marginRight: 3 }}
+      />
+      <FontAwesome
+        name="star"
+        size={17}
+        color={setIconColor(3, ratingInt)}
+        style={{ marginRight: 4 }}
+      />
+      <FontAwesome
+        name="star"
+        size={17}
+        color={setIconColor(4, ratingInt)}
+        style={{ marginRight: 3 }}
+      />
+      <FontAwesome
+        name="star"
+        size={17}
+        color={setIconColor(5, ratingInt)}
+        style={{ marginRight: 3 }}
+      />
 
       <Text>({props.numOfRatings})</Text>
     </View>
