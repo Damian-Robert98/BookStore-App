@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, View, StyleSheet, Image } from "react-native";
 
-import BookScreenHeader from '../components/BookScreenHeader';
+import BookScreenHeader from '../components/BookScreenHeader/BookScreenHeader';
 
 const BookScreen = () => {
   return (
@@ -13,7 +13,7 @@ const BookScreen = () => {
         author={1} 
         price={100} 
         rating={3}
-        cover={''}
+        cover={'https://picsum.photos/200/300'}
         category={[]}
         sample={"lorem ipso"}  
       />
