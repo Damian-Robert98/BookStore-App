@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Image, Text, View } from "react-native";
 
 //types
@@ -13,6 +13,9 @@ import BuyBtn from "./BuyBtn";
 //to do :improve naming convention
 
 const BookScreenHeader = (props: IBook) => {
+  useEffect(() => {
+    
+  }, [])
   return (
     <View style={{ flexDirection: "column" }}>
       <View style={styles.container}>
@@ -22,7 +25,7 @@ const BookScreenHeader = (props: IBook) => {
         <View style={styles.rightContainer}>
           <Text style={styles.title}>{props.title}</Text>
           <Text style={styles.authorName}>By {props.author}</Text>
-          <RatingsIndicator rating={2.7} numOfRatings={272} />
+          <RatingsIndicator rating={2.7} numOfRatings={272} starSize={19}/>
           <CategoryListView categories={props.category} />
           <IconsContainer />
           <BuyBtn price={props.price} />

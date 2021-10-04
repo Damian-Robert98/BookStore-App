@@ -1,13 +1,15 @@
 import React from "react";
-import { Text, View, StyleSheet, SafeAreaView } from "react-native";
-import window from "../constants/Layout";
+import { Text, View, StyleSheet, SafeAreaView, ScrollView } from "react-native";
+
 
 import BookScreenHeader from '../components/BookScreenHeader';
+import UserRatingListView from "../components/UserRatingListView";
 
 const BookScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Text>BookScreen</Text>
+      <ScrollView>
       <BookScreenHeader 
         id={1} 
         title={"design Patterns and the art of stealing"} 
@@ -18,11 +20,14 @@ const BookScreen = () => {
         category={["fiction","novel","mystery"]}
         sample={"lorem ipso dfsdgdfhgdfsdsdas  dsdfsdghjyutyhgrsdgftntrnbftgyftytdfdrftfrtfvdtgvrdgcdd dasdasdsadasdasdasd sadasdasda sdasdsad sadasdasdfhfgnhdfsdgfynsdfsdfhfhnfgfthfgfdhghbdfhghfggdfhdgsdgdfgsdgdhgsdfdfhgsfdhsdffdhdffsdgdfhgsdfsd"}  
       />
+      <UserRatingListView/>
+      </ScrollView>
+      
       
      
 
       <View>
-        <Text>user rating</Text>
+        
       </View>
     </SafeAreaView>
   );

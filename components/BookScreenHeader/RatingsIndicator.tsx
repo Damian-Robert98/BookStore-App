@@ -4,7 +4,8 @@ import { FontAwesome } from "@expo/vector-icons";
 
 type RatingsIdicatorProps = {
   rating: number;
-  numOfRatings: number;
+  numOfRatings?: number;
+  starSize: number; 
 };
 
 const RatingsIndicator = (props: RatingsIdicatorProps) => {
@@ -20,36 +21,36 @@ const RatingsIndicator = (props: RatingsIdicatorProps) => {
     <View style={{ flexDirection: "row" }}>
       <FontAwesome
         name="star"
-        size={19}
+        size={props.starSize}
         style={{ marginRight: 3 }}
         color={setIconColor(1, ratingInt)}
       />
       <FontAwesome
         name="star"
-        size={19}
+        size={props.starSize}
         color={setIconColor(2, ratingInt)}
         style={{ marginRight: 3 }}
       />
       <FontAwesome
         name="star"
-        size={19}
+        size={props.starSize}
         color={setIconColor(3, ratingInt)}
         style={{ marginRight: 4 }}
       />
       <FontAwesome
         name="star"
-        size={19}
+        size={props.starSize}
         color={setIconColor(4, ratingInt)}
         style={{ marginRight: 3 }}
       />
       <FontAwesome
         name="star"
-        size={19}
+        size={props.starSize}
         color={setIconColor(5, ratingInt)}
         style={{ marginRight: 3 }}
       />
-
-      <Text>({props.numOfRatings})</Text>
+      
+      <Text>{props.numOfRatings}</Text>
     </View>
   );
 };
