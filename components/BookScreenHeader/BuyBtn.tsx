@@ -11,9 +11,9 @@ const BuyBtn = (props: BuyBtnProps) => {
   );
   return (
     <TouchableOpacity onPress={onPress}>
-      <View style={{ backgroundColor: "red" }}>
-        <Text style={{ color: "white", alignSelf: "center", padding: 2 }}>
-          buy now ${props.price}
+      <View style={{ backgroundColor: "#FF002E", maxWidth:130}}>
+        <Text style={{ fontSize:15, color: "white", alignSelf: 'center',margin:3}}>
+          Buy now ${props.price}
         </Text>
       </View>
     </TouchableOpacity>

@@ -1,22 +1,30 @@
 import { StyleSheet } from "react-native";
-
+import window from "../../constants/Layout";
 
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
+    
   },
+  rightContainer:{
+    flexShrink:1,
+   
+  },
+
   title: {
-    fontSize: 22,
+    fontSize: 18,
     fontWeight: "bold",
+    
+    
   },
   authorName: {
     fontSize: 16,
   },
   img: {
-    marginLeft: 15,
-    marginRight: 15,
-    width: 150,
-    height: 200,
+    marginLeft: 7,
+    marginRight: 7,
+    width: 140,
+    height: 190,
   },
   shadow: {
     elevation: 20,

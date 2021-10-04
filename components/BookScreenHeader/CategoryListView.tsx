@@ -2,11 +2,18 @@ import React from "react";
 import { View } from "react-native";
 import CategoryListItem from "./CategoryListItem";
 
-const CategoryListView = () => {
+type CategoryListViewProps={
+  categories:string[];
+}
+//return the first 3 categories
+const CategoryListView = (props: CategoryListViewProps) => {
+  const categoriesBO= props.categories.slice(0,3);
   return (
     <View style={{ flexDirection: "row" }}>
-      <CategoryListItem text={"fiction"} />
-      <CategoryListItem text={"novel"} />
+      {categoriesBO.map((item,index)=>(
+        <CategoryListItem text={item} key={index}/> 
+      ))}
+      
     </View>
   );
 };

@@ -1,6 +1,6 @@
 import React from "react";
 import {View, Text} from 'react-native';
-import CategoryListView from "./CategoryListView";
+
 
 
 
@@ -9,9 +9,10 @@ type CategoryListItem = {
 };
 
 const CategoryListItem = (props: CategoryListItem) => {
+  
   return (
-    <View style={{ backgroundColor: "lightgrey", margin: 4, padding: 3 }}>
-      <Text style={{ color: "red" }}>{props.text}</Text>
+    <View style={{ backgroundColor: "#EBEBEB", margin: 4, padding: 3 }}>
+      <Text style={{ color: "#FF002E" }}>{props.text}</Text>
     </View>
   );
 };

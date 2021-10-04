@@ -1,20 +1,21 @@
 import React from "react";
-import { Text, View, StyleSheet, Image } from "react-native";
+import { Text, View, StyleSheet, SafeAreaView } from "react-native";
+import window from "../constants/Layout";
 
 import BookScreenHeader from '../components/BookScreenHeader';
 
 const BookScreen = () => {
   return (
-    <View>
+    <SafeAreaView style={styles.container}>
       <Text>BookScreen</Text>
       <BookScreenHeader 
         id={1} 
-        title={"design Patterns"} 
+        title={"design Patterns and the art of stealing"} 
         author={1} 
         price={100} 
         rating={3}
         cover={'https://picsum.photos/200/300'}
-        category={[]}
+        category={["fiction","novel","mystery"]}
         sample={"lorem ipso"}  
       />
       
@@ -26,12 +27,14 @@ const BookScreen = () => {
       <View>
         <Text>user rating</Text>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    
+  },
   title: {},
 });
 

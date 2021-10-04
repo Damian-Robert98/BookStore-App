@@ -14,14 +14,14 @@ const IconsContainer = () => {
     <View style={{ flexDirection: "row", margin: 10 }}>
       <FontAwesome
         name="heart"
-        color={isFavorited ? "red" : "grey"}
+        color={isFavorited ? "red" : "#C4C4C4"}
         size={25}
         onPress={onHeartPressed}
         style={{marginRight:10}}
       />
       <FontAwesome
         name="bookmark"
-        color={isSaved ? "red" : "grey"}
+        color={isSaved ? "red" : "#C4C4C4"}
         size={25}
         onPress={onSavePressed}
       />
