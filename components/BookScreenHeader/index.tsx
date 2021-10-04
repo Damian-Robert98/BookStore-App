@@ -14,19 +14,29 @@ import BuyBtn from "./BuyBtn";
 
 const BookScreenHeader = (props: IBook) => {
   return (
-    <View style={styles.container}>
-      <View style={styles.shadow}>
-        <Image style={styles.img} source={{ uri: props.cover }} />
+    <View style={{ flexDirection: "column" }}>
+      <View style={styles.container}>
+        <View style={styles.shadow}>
+          <Image style={styles.img} source={{ uri: props.cover }} />
+        </View>
+        <View style={styles.rightContainer}>
+          <Text style={styles.title}>{props.title}</Text>
+          <Text style={styles.authorName}>By {props.author}</Text>
+          <RatingsIndicator rating={2.7} numOfRatings={272} />
+          <CategoryListView categories={props.category} />
+          <IconsContainer />
+          <BuyBtn price={props.price} />
+        </View>
       </View>
-    <View style={styles.rightContainer}>
-        <Text style={styles.title}>{props.title}</Text>
-        <Text style={styles.authorName}>By {props.author}</Text>
-        <RatingsIndicator rating={2.7} numOfRatings={272} />
-        <CategoryListView categories={props.category} />
-        <IconsContainer />
-        <BuyBtn price={props.price}/>
+
+      <View style={{margin:10 ,flexShrink:1}}>
+        <Text style={styles.title}>Introduction</Text>
+        <View>
+          <Text numberOfLines={3.5} ellipsizeMode='tail'>
+            {props.sample}
+          </Text>
+        </View>
       </View>
-      <Text></Text>
     </View>
   );
 };

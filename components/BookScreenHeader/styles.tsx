@@ -4,18 +4,14 @@ import window from "../../constants/Layout";
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    
   },
-  rightContainer:{
-    flexShrink:1,
-   
+  rightContainer: {
+    flexShrink: 1,
   },
 
   title: {
     fontSize: 18,
     fontWeight: "bold",
-    
-    
   },
   authorName: {
     fontSize: 16,

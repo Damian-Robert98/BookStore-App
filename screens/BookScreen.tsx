@@ -16,13 +16,10 @@ const BookScreen = () => {
         rating={3}
         cover={'https://picsum.photos/200/300'}
         category={["fiction","novel","mystery"]}
-        sample={"lorem ipso"}  
+        sample={"lorem ipso dfsdgdfhgdfsdsdas  dsdfsdghjyutyhgrsdgftntrnbftgyftytdfdrftfrtfvdtgvrdgcdd dasdasdsadasdasdasd sadasdasda sdasdsad sadasdasdfhfgnhdfsdgfynsdfsdfhfhnfgfthfgfdhghbdfhghfggdfhdgsdgdfgsdgdhgsdfdfhgsfdhsdffdhdffsdgdfhgsdfsd"}  
       />
       
-      <View>
-        <Text>Introduction</Text>
-        <Text>description</Text>
-      </View>
+     
 
       <View>
         <Text>user rating</Text>
