@@ -14,10 +14,11 @@ import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
-import TabOneScreen from '../screens/TabOneScreen';
-import TabTwoScreen from '../screens/TabTwoScreen';
-import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
+import TabOneScreen from '../screens/HomeScreen';
+import TabTwoScreen from '../screens/FavoritesScreen';
+import { HomeStackParamList, RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
+import BookScreen from '../screens/BookScreen';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -47,6 +48,17 @@ function RootNavigator() {
   );
 }
 
+
+const HomeStack= createNativeStackNavigator<HomeStackParamList>();
+
+const HomeStackNavigator= ()=>{
+  return (
+    <HomeStack.Navigator screenOptions={{presentation:'card',headerShown:false}}>
+      <HomeStack.Screen name='Home' component={TabOneScreen} options={{title:"home" }}/>
+      <HomeStack.Screen name='Book' component={BookScreen} options={{title:"Book"}}/>
+    </HomeStack.Navigator>
+  );
+}
 /**
  * A bottom tab navigator displays tab buttons on the bottom of the display to switch screens.
  * https://reactnavigation.org/docs/bottom-tab-navigator
@@ -64,10 +76,10 @@ function BottomTabNavigator() {
       }}>
       <BottomTab.Screen
         name="TabOne"
-        component={TabOneScreen}
+        component={HomeStackNavigator}
         options={({ navigation }: RootTabScreenProps<'TabOne'>) => ({
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'Home',
+          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
           headerRight: () => (
             <Pressable
               onPress={() => navigation.navigate('Modal')}
@@ -88,8 +100,8 @@ function BottomTabNavigator() {
         name="TabTwo"
         component={TabTwoScreen}
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'Favorites',
+          tabBarIcon: ({ color }) => <TabBarIcon name="heart" color={color} />,
         }}
       />
     </BottomTab.Navigator>
