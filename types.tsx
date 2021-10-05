@@ -28,7 +28,7 @@ export type RootTabParamList = {
 };
 export type HomeStackParamList = {
   Home: undefined;
-  Book: { userId: string };
+  Book: { bookId: string };
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
@@ -45,6 +45,14 @@ export type HomeStackScreenProps<Screen extends keyof HomeStackParamList> =
     BottomTabScreenProps<RootTabParamList>,
     NativeStackScreenProps<RootStackParamList>
   >;
+
+ export type BookScreenProps = CompositeScreenProps<
+  NativeStackScreenProps<HomeStackParamList,'Book'>,
+  CompositeScreenProps<
+    BottomTabScreenProps<RootTabParamList>,
+    NativeStackScreenProps<RootStackParamList>
+  >
+ >; 
 export interface IBook {
   id: number;
   title: string;
