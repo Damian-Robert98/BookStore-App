@@ -1,7 +1,6 @@
 import React from "react";
 import { View, Image, Text, StyleSheet } from "react-native";
 
-
 import RatingsIndicator from "./BookScreenHeader/RatingsIndicator";
 
 type UserRatingListItemProps = {
@@ -15,13 +14,12 @@ const UserRatingListItem = (props: UserRatingListItemProps) => {
   return (
     <View style={styles.container}>
       <Image style={styles.img} source={{ uri: props.img }} />
-      <View style={{ flexDirection: "column", width:'80%' }}>
+      <View style={{ flexDirection: "column", width: "80%" }}>
         <View style={styles.topContainer}>
           <Text style={styles.author}>{props.author}</Text>
-          <View style={{alignSelf:'flex-end'}}>
+          <View style={{ alignSelf: "flex-end", marginRight:30}}>
             <RatingsIndicator rating={props.rating} starSize={14} />
           </View>
-          
         </View>
         <View>
           <Text>{props.review}</Text>
@@ -36,28 +34,23 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     marginBottom: 7,
     width: "100%",
-    borderBottomWidth:1,
-    
+    borderBottomWidth: 1,
     
   },
   img: {
-    width: 50,
-    height: 50,
+    width: 70,
+    height: 70,
     margin: 5,
   },
   topContainer: {
     flexDirection: "row",
-    justifyContent:'space-between',
-    alignItems:'center'
-   
-
-  
+    justifyContent: "space-between",
+    alignItems: "center",
   },
   author: {
     marginLeft: 5,
-    fontSize:16,
-    fontWeight:'bold'
-    
+    fontSize: 16,
+    fontWeight: "bold",
   },
 });
 

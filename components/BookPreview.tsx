@@ -15,7 +15,7 @@ type Props = {
 const BookPreview = (props: Props) => {
   const navigation2 = useNavigation();
   const onPress=()=>(
-    navigation2.navigate('Root',{screen:'TabOne',params:{screen:'Book',params:{userId:props.id}}})
+    navigation2.navigate('Root',{screen:'TabOne',params:{screen:'Book',params:{bookId:props.id}}})
   );
   return (
     <View style={styles.container}>
